@@ -1,13 +1,18 @@
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
 public class MyFrame extends JFrame implements MouseListener, ActionListener{
-    
+    //Global Labels
     JLabel label1,label2,label3,label4,label5,label6,label7,label8, label9, extraLabel, greenlight, redlight;
-    int x, y, z;
+
+    //Box Chunks
     JTextField set1, set2, set3, set4, set5, set6, set7, set8;
+    //Chunk Images
     ImageIcon image1, image2, image3, image4, image5, image6, image7, image8, image9;
+
+    //Default Location
     int b1a = 0, b1b = 0, b1c = 88, b1d = 100;
     int b2a = 88, b2b = 0,b2c = 88, b2d = 100;
     int b3a = 176, b3b = 0, b3c = 88, b3d = 100;
@@ -18,28 +23,63 @@ public class MyFrame extends JFrame implements MouseListener, ActionListener{
     int b8a = 88, b8b = 200, b8c = 88, b8d = 100;
     int b9a = 176, b9b = 200, b9c = 88, b9d = 100;
 
+    //Swapping integers
     int a, b;
+
+    //Button Swap
     JButton butt;
 
-
     MyFrame(){
-        JOptionPane.showMessageDialog(null, "Puzzle Swap Game! Beta-A001 By ReCruAs");
-        //betashuffle
-        b2a = 0; b2b = 0;b2c = 88; b2d = 100;
-        b7a = 176; b7b = 0; b7c = 88; b7d = 100;
-        b4a = 88; b4b = 200; b4c = 88; b4d = 100;
-        b5a = 88; b5b = 100; b5c = 88; b5d = 100;
-        b6a = 176; b6b = 100; b6c = 88; b6d = 100;
-        b3a = 0; b3b = 200; b3c = 88; b3d = 100;
-        b8a = 0; b8b = 100; b8c = 88; b8d = 100;
-        b1a = 176; b1b = 200; b1c = 88; b1d = 100;
-        b9a = 88; b9b = 0; b9c = 88; b9d = 100;
 
-        this.setTitle("Puzzle Swap Game! (BETA-A001)");
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        //beta shuffle config 2
+        Random random = new Random();
+        int x = random.nextInt(3)+1;
+        //variation1
+        if (x==1) {
+            b2a = 0; b2b = 0;
+            b1a = 88; b1b = 0;
+            b4a = 176; b4b = 0;
+            b5a = 0; b5b = 100;
+            b3a = 88; b3b = 100;
+            b7a = 176; b7b = 100;
+            b6a = 0; b6b = 200;
+            b9a = 88; b9b = 200;
+            b8a = 176; b8b = 200;
+        }
+        //variation2
+        else if (x==2){
+            b3a = 0; b3b = 0;
+            b4a = 88; b4b = 0;
+            b1a = 176; b1b = 0;
+            b5a = 0; b5b = 100;
+            b2a = 88; b2b = 100;
+            b8a = 176; b8b = 100;
+            b6a = 0; b6b = 200;
+            b9a = 88; b9b = 200;
+            b7a = 176; b7b = 200;
+        }
+        //variation3
+        else if (x==3){
+            b5a = 0; b5b = 0;
+            b4a = 88; b4b = 0;
+            b9a = 176; b9b = 0;
+            b3a = 0; b3b = 100;
+            b2a = 88; b2b = 100;
+            b8a = 176; b8b = 100;
+            b6a = 0; b6b = 200;
+            b1a = 88; b1b = 200;
+            b7a = 176; b7b = 200;
+        }
+
+        //Start Up Message
+        JOptionPane.showMessageDialog(null, "Puzzle Swap Game! Beta-A002 By ReCruAs");
+
+        //GUI Set-Up
+        this.setTitle("Puzzle Swap Game! (BETA-A002)");     
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//DO_NOTHING_ON_CLOSE);
         ImageIcon icon = new ImageIcon("ert.png");
         this.setIconImage(icon.getImage());
-        this.setSize(380,390);
+        this.setSize(380, 390);
         this.setLocation(700, 300);
         this.setLayout(null);
         this.setResizable(false);
@@ -132,7 +172,7 @@ public class MyFrame extends JFrame implements MouseListener, ActionListener{
         label9.setOpaque(true);
         label9.addMouseListener(this);
         label9.setText("9");
-        label9.setHorizontalAlignment(JTextField.CENTER);
+        label9.setHorizontalAlignment(JTextField.CENTER);  
 
         extraLabel = new JLabel();
         extraLabel.setBackground(Color.white);
@@ -201,14 +241,8 @@ public class MyFrame extends JFrame implements MouseListener, ActionListener{
 
         this.setVisible(true);
     }
-
     @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
         // TODO Auto-generated method stub
         if(e.getSource()==butt){
             if (a==1 &&b==2){
@@ -1485,24 +1519,24 @@ public class MyFrame extends JFrame implements MouseListener, ActionListener{
             redlight.setBackground(Color.red);
 
             if (b1a==0 && b1b==0 && b1c==88 && b1d==100 && b2a==88 && b2b==0 && b2c==88 && b2d==100 && b3a==176 && b3b==0 && b3c==88 && b3d==100 && b4a==0 && b4b==100 && b4c==88 && b4d==100 && b5a==88 && b5b==100 && b5c==88 && b5d==100 && b6a==176 && b6b==100 && b6c==88 && b6d==100 && b7a==0 && b7b==200 && b7c==88 && b7d==100 && b8a==88 && b8b==200 && b8c==88 && b8d==100 && b9a==176 && b9b==200 && b9c==88 && b9d==100){
-                System.out.println("bolaga");
-                JOptionPane.showMessageDialog(null, "Bolaga! nabuo mona mundo ko, hahahahaha");
+                JOptionPane.showMessageDialog(null, "Bolaga! nabuo mona mundo ko, HAHAHAHA");
                 System.exit(0);
             }
-
         }
     }
-
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
-        //System.out.println("Apple");
+        
     }
-
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
-        //System.out.println("Grape");
         if(e.getSource()==label1){
             if(set1.isEditable()==true){
                 set1.setText(b1a+"");
@@ -1796,17 +1830,14 @@ public class MyFrame extends JFrame implements MouseListener, ActionListener{
             }
         }
     }
-
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
-        //System.out.println("Ror");
+        
     }
-
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
-        //System.out.println("Ming ming");
+        
     }
-
 }
