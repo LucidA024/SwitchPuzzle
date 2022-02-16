@@ -75,7 +75,7 @@ class MyFrame extends JFrame implements MouseListener, ActionListener{
         JOptionPane.showMessageDialog(null, "Puzzle Swap Game! Beta-A002 By ReCruAs");
 
         //GUI Set-Up
-        this.setTitle("Puzzle Swap Game! (BETA-A002)");     
+        this.setTitle("Puzzle Swap Game! (BETA-A003)");     
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         ImageIcon icon = new ImageIcon("ert.png");
         this.setIconImage(icon.getImage());
